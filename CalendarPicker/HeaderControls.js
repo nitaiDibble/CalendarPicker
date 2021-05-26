@@ -38,10 +38,8 @@ export default function HeaderControls(props) {
   const MONTHS = months || Utils.MONTHS; // English Month Array
   const monthName = MONTHS[currentMonth];
   const year = currentYear;
-
   const disablePreviousMonth = restrictMonthNavigation && Utils.isSameMonthAndYear(minDate, currentMonth, currentYear);
   const disableNextMonth = restrictMonthNavigation && Utils.isSameMonthAndYear(maxDate, currentMonth, currentYear);
-
   const accessibilityProps = { accessibilityRole: 'header' };
   if (Platform.OS === 'web') {
     accessibilityProps['aria-level'] = headingLevel;
@@ -57,6 +55,7 @@ export default function HeaderControls(props) {
         styles={styles.previousContainer}
         textStyles={[styles.navButtonText, textStyle, previousTitleStyle]}
       />
+ 
       <View style={[styles.monthYearHeaderWrapper,monthYearHeaderWrapperStyle]}>
         <TouchableOpacity onPress={onPressMonth}>
           <Text style={[styles.monthHeaderMainText, textStyle, monthTitleStyle]} {...accessibilityProps}>
@@ -77,6 +76,7 @@ export default function HeaderControls(props) {
         styles={styles.nextContainer}
         textStyles={[styles.navButtonText, textStyle, nextTitleStyle]}
       />
+      
     </View>
   );
 }

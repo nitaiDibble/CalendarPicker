@@ -28,6 +28,9 @@ export default class MonthSelector extends Component {
 
     return (
       <View styles={styles.calendar}>
+
+
+      <View style={{flex:1,backgroundColor:'red'}}></View>
         <MonthsHeader
           styles={styles}
           textStyle={textStyle}

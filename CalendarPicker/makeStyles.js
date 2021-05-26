@@ -37,7 +37,8 @@ export function makeStyles(params) {
 
     calendar: {
       height: 320*scaler,
-      marginTop: 10*scaler
+      marginTop: 10*scaler,
+      flex:1
     },
 
     dayButton: {
@@ -155,16 +156,16 @@ export function makeStyles(params) {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      paddingHorizontal: 3*scaler,
-    },
+       },
 
     previousContainer: {
-      marginLeft: 10*scaler,
-    },
+      flexDirection:'column',
+       alignItems:'flex-start',
+       },
 
     nextContainer: {
-      marginRight: 10*scaler,
-      alignItems: 'flex-end',
+      flexDirection:'column',
+       alignItems: 'flex-end',
     },
 
     navButtonText: {
@@ -180,7 +181,7 @@ export function makeStyles(params) {
     },
 
     disabledText: {
-      fontSize: 14*scaler,
+      fontSize: 20*scaler,
       color: '#BBBBBB',
       alignSelf: 'center',
       justifyContent: 'center'
@@ -229,16 +230,17 @@ export function makeStyles(params) {
     monthsWrapper: {
       alignSelf: 'center',
       justifyContent: 'center',
-      width: containerWidth,
+      width: containerWidth/2,
     },
 
     monthsRow: {
       flexDirection: 'row',
       padding: 20*scaler,
+
     },
 
     yearHeaderMainText: {
-      fontSize: 16*scaler,
+      fontSize: 20*scaler,
       color: '#000',
       marginHorizontal: 3*scaler,
     },
@@ -257,20 +259,21 @@ export function makeStyles(params) {
     yearsHeaderText: {
       fontSize: 16*scaler,
       color: '#000',
-      width: 180*scaler,
-      textAlign: 'center'
+       textAlign: 'center'
     },
 
     yearsWrapper: {
+       flexDirection:'column',
       alignSelf: 'center',
-      justifyContent: 'center',
-      width: containerWidth,
+      justifyContent: 'space-around',
+      width: containerWidth/2,
     },
 
     yearsRow: {
+      paddingTop:containerHeight/13,
       flexDirection: 'row',
-      padding: 20*scaler,
-    },
+      
+     },
 
   };
 }

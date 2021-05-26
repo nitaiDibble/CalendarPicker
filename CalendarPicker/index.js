@@ -73,7 +73,7 @@ export default class CalendarPicker extends Component {
     }
 
     let selectedDateRanges = {};
-    const { selectedStartDate, selectedEndDate } = this.props;
+    const {  selectedStartDate, selectedEndDate,todayClicked } = this.props;
     if (selectedStartDate !== prevProps.selectedStartDate ||
         selectedEndDate !== prevProps.selectedEndDate
     ) {
@@ -81,9 +81,13 @@ export default class CalendarPicker extends Component {
         selectedStartDate: selectedStartDate && moment(selectedStartDate),
         selectedEndDate: selectedEndDate && moment(selectedEndDate)
       };
+      if (todayClicked){
+      newMonthYear = this.updateMonthYear(this.props.selectedStartDate);
+        this.props.setTodayClicked(false)
+    } 
       doStateUpdate = true;
     }
-
+   
     let disabledDates = {};
     if (prevProps.disabledDates !== this.props.disabledDates) {
       disabledDates = this.updateDisabledDates(this.props.disabledDates);
@@ -125,6 +129,7 @@ export default class CalendarPicker extends Component {
       let renderMonthParams = {};
       const _state = {...this.state, ...newState};
       renderMonthParams = this.createMonthProps(_state);
+
       this.setState({...newState, renderMonthParams});
     }
   }
@@ -490,6 +495,7 @@ export default class CalendarPicker extends Component {
     switch (currentView) {
     case 'months':
       content = (
+        <View style={{flex:1 }}>
         <MonthSelector
           styles={styles}
           textStyle={textStyle}
@@ -501,6 +507,7 @@ export default class CalendarPicker extends Component {
           onSelectMonth={this.handleOnSelectMonthYear}
           headingLevel={headingLevel}
         />
+        </View>
       );
       break;
     case 'years':
